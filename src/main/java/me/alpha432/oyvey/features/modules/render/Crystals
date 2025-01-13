@@ -1,0 +1,79 @@
+package popbobik.guguhack.features.modules.visual;
+
+import me.alpha432.oyvey.features.modules.Module;
+import me.alpha432.oyvey.features.setting.Setting;
+
+public class Crystals extends Module {
+  public static Crystals INSTANCE;
+  
+  public Setting<modes> mode = register(new Setting("Mode", modes.FILL));
+  
+  public Setting<outlineModes> outlineMode = register(new Setting("Outline Mode", outlineModes.WIRE));
+  
+  public Setting<Float> size = register(new Setting("Size", Float.valueOf(1.0F), Float.valueOf(0.1F), Float.valueOf(2.0F)));
+  
+  public Setting<Float> crystalSpeed = register(new Setting("Speed", Float.valueOf(1.0F), Float.valueOf(0.0F), Float.valueOf(20.0F)));
+  
+  public Setting<Float> crystalBounce = register(new Setting("Bounce", Float.valueOf(0.2F), Float.valueOf(0.0F), Float.valueOf(1.0F)));
+  
+  public Setting<BlendModes> blendModes = register(new Setting("Blend", BlendModes.Default));
+  
+  public Setting<Boolean> enchanted = register((new Setting("Glint", Boolean.valueOf(false))).setParent());
+  
+  public Setting<Integer> enchantRed = register(new Setting("Glint Red", Integer.valueOf(135), Integer.valueOf(0), Integer.valueOf(255), v -> this.enchanted.isOpen()));
+  
+  public Setting<Integer> enchantGreen = register(new Setting("Glint Green", Integer.valueOf(0), Integer.valueOf(0), Integer.valueOf(255), v -> this.enchanted.isOpen()));
+  
+  public Setting<Integer> enchantBlue = register(new Setting("Glint Blue", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255), v -> this.enchanted.isOpen()));
+  
+  public Setting<Integer> enchantAlpha = register(new Setting("Glint Alpha", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255), v -> this.enchanted.isOpen()));
+  
+  public Setting<Boolean> texture = register(new Setting("Texture", Boolean.valueOf(false)));
+  
+  public Setting<Integer> red = register(new Setting("Red", Integer.valueOf(135), Integer.valueOf(0), Integer.valueOf(255)));
+  
+  public Setting<Integer> green = register(new Setting("Green", Integer.valueOf(0), Integer.valueOf(0), Integer.valueOf(255)));
+  
+  public Setting<Integer> blue = register(new Setting("Blue", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255)));
+  
+  public Setting<Integer> alpha = register(new Setting("Alpha", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255)));
+  
+  public Setting<Boolean> outline = register((new Setting("Outline", Boolean.valueOf(false))).setParent());
+  
+  public Setting<Float> lineWidth = register(new Setting("LineWidth", Float.valueOf(1.0F), Float.valueOf(0.1F), Float.valueOf(5.0F), v -> this.outline.isOpen()));
+  
+  public Setting<Integer> outlineRed = register(new Setting("Outline Red", Integer.valueOf(135), Integer.valueOf(0), Integer.valueOf(255), v -> this.outline.isOpen()));
+  
+  public Setting<Integer> outlineGreen = register(new Setting("Outline Green", Integer.valueOf(0), Integer.valueOf(0), Integer.valueOf(255), v -> this.outline.isOpen()));
+  
+  public Setting<Integer> outlineBlue = register(new Setting("Outline Blue", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255), v -> this.outline.isOpen()));
+  
+  public Setting<Integer> outlineAlpha = register(new Setting("Outline Alpha", Integer.valueOf(90), Integer.valueOf(0), Integer.valueOf(255), v -> this.outline.isOpen()));
+  
+  public Setting<Boolean> hiddenSync = register((new Setting("Hidden Sync", Boolean.valueOf(false))).setParent());
+  
+  public Setting<Integer> hiddenRed = register(new Setting("Hidden Red", Integer.valueOf(135), Integer.valueOf(0), Integer.valueOf(255), v -> !this.hiddenSync.isOpen()));
+  
+  public Setting<Integer> hiddenGreen = register(new Setting("Hidden Green", Integer.valueOf(0), Integer.valueOf(0), Integer.valueOf(255), v -> !this.hiddenSync.isOpen()));
+  
+  public Setting<Integer> hiddenBlue = register(new Setting("Hidden Blue", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255), v -> !this.hiddenSync.isOpen()));
+  
+  public Setting<Integer> hiddenAlpha = register(new Setting("Hidden Alpha", Integer.valueOf(90), Integer.valueOf(0), Integer.valueOf(255), v -> !this.hiddenSync.isOpen()));
+  
+  public Crystals() {
+    super("Crystals", "Modifies crystal rendering in different ways", Module.Category.VISUAL, true, false, false);
+    INSTANCE = this;
+  }
+  
+  public enum BlendModes {
+    Default, Brighter;
+  }
+  
+  public enum outlineModes {
+    WIRE, FLAT;
+  }
+  
+  public enum modes {
+    FILL, WIREFRAME;
+  }
+}
