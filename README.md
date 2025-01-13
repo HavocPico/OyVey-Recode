@@ -1,3 +1,2 @@
-# OyVey-BUILDABLE_SRC
-buildable SRC for OyVey client v0.0.3 (not to be confused with the version that leaked that was also named 0.0.3, this is rewitten and better)
-(fixed build)
+# OyVey RECODE
+goofy ahh shit recode by me - still made for 1.12.2 lol
