@@ -1,4 +1,4 @@
-package popbobik.guguhack.features.modules.render;
+package me.alpha432.oyvey.features.modules.render;
 
 import me.alpha432.oyvey.features.modules.Module;
 import me.alpha432.oyvey.features.setting.Setting;
